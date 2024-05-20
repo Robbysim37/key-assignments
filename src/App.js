@@ -43,9 +43,11 @@ function App() {
   const assignKeys = () => {
     keys.forEach(key => {
       let currDriver
+      let currDriverIndex
       if(key.rank = "CDL"){
-        currDriver = drivers.find(driver => {
+        currDriver = drivers.find((driver,i) => {
           if(driver.isCDL){
+            currDriverIndex = i
             return true
           }
         })
@@ -53,21 +55,24 @@ function App() {
           assignedKeys.push({
             vin:key.vin,
             rank:key.rank,
-            driver:currDriver
+            driver:drivers.splice(currDriverIndex,1)[0]
           })
-
+        }else{
+          unassignedKeys.push(key)
         }
       }else if(key.rank = "stick"){
-
+        unassignedKeys.push(key)
       }else if(key.rank = "standard"){
-
+        unassignedKeys.push(key)
       }else{
-
+        unassignedKeys.push(key)
       }
     })
   }
 
   sortKeys()
+  assignKeys()
+  console.log(assignedKeys)
 
   return (
     <div></div>
