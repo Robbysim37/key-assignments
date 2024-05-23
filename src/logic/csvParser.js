@@ -46,7 +46,7 @@ const shapeDriverData = (driver) => {
 
 export const driverData = (matrix) => {
     const drivers = []
-    matrix.splice(0,1)
+    matrix.shift()
     console.log(matrix)
     for(let i = 0; i < matrix.length; i++){
         const currDriverArray = matrix[i]
