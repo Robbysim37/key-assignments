@@ -22,7 +22,9 @@ export const createAssignments = (assignedKeys, unassignedKeys) => {
     })
 
     const rows = assignedKeysExport 
-    rows.push(unassignedKeysExport)
+    unassignedKeysExport.forEach(element => {
+        rows.push(element)
+    })
     
     let csvContent = "data:text/csv;charset=utf-8," 
         + rows.map(e => e.join(",")).join("\n");
