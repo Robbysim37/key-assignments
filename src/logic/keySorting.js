@@ -53,6 +53,8 @@ export const assignKeys = (drivers) => {
         unassignedKeys.push(keyDriverPair)
       })
     }
+    assignedKeys.sort((a,b) => a.group - b.group)
+    unassignedKeys.sort((a,b) => a.group - b.group)
     return {
         assignedKeys,
         unassignedKeys
