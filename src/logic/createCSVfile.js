@@ -4,10 +4,12 @@ export const createAssignments = (assignedKeys, unassignedKeys) => {
 
     assignedKeys.forEach(keyDriverPair => {
         const keyRow = []
+        const nameArr = keyDriverPair.name.split(" ")
         keyRow.push(keyDriverPair.group)
         keyRow.push(keyDriverPair.vin)
         keyRow.push(keyDriverPair.rank)
-        keyRow.push(keyDriverPair.name)
+        keyRow.push(nameArr[0])
+        keyRow.push(nameArr[1])
         keyRow.push(keyDriverPair.id)
         assignedKeysExport.push(keyRow)
     });
@@ -17,7 +19,6 @@ export const createAssignments = (assignedKeys, unassignedKeys) => {
         keyRow.push(keyDriverPair.group)
         keyRow.push(keyDriverPair.vin)
         keyRow.push(keyDriverPair.rank)
-        keyRow.push(keyDriverPair.name)
         unassignedKeysExport.push(keyRow)
     })
 
