@@ -28,7 +28,7 @@ export const sortKeys = (keys) => {
     let validDriver = drivers.find(driver => driver[key.rank] && driver.available)
         if(validDriver){
             validDriver.available = false
-            return {...key,name:validDriver.name}
+            return {...key,name:validDriver.name,id:validDriver.id}
         }else{
             return {...key,name:"No Driver"}
         }
@@ -53,6 +53,8 @@ export const assignKeys = (drivers) => {
         unassignedKeys.push(keyDriverPair)
       })
     }
+    assignedKeys.sort((a,b) => a.group - b.group)
+    unassignedKeys.sort((a,b) => a.group - b.group)
     return {
         assignedKeys,
         unassignedKeys
