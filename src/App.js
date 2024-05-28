@@ -112,11 +112,11 @@ function App() {
     <div className='app'>
       <div className='container'>
       <div className='fileUpload'>
-        <p>Upload Key List</p>
+        <p>Upload Driver Signout Sheet</p>
         <input type='file' accept='.csv' onChange={parseKeyList}></input>
       </div>
       <div className='fileUpload'>
-      <p>Upload Driver List</p>
+      <p>Upload Name List</p>
       <input type='file' accept='.csv' onChange={parseDriverList}></input>
       </div>
       <button onClick={keysClickHandler}>Assign Keys</button>

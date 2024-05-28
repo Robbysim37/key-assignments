@@ -19,6 +19,7 @@ export const createAssignments = (assignedKeys, unassignedKeys) => {
         keyRow.push(keyDriverPair.group)
         keyRow.push(keyDriverPair.vin)
         keyRow.push(keyDriverPair.rank)
+        keyRow.push(keyDriverPair.name)
         unassignedKeysExport.push(keyRow)
     })
 

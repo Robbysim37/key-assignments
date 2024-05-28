@@ -49,34 +49,36 @@ export const driverData = (matrix) => {
     matrix.shift()
     for(let i = 0; i < matrix.length; i++){
         const currDriverArray = matrix[i]
-        const driver = {
-            name:`${currDriverArray[1]} ${currDriverArray[0]}`,
-            id:currDriverArray[currDriverArray.length - 1],
-            CDL:false,
-            Chauffeur:false,
-            Manual:false,
-            Standard:true,
-            available:true
-        }
+        if(currDriverArray.length !== 0){
+            const driver = {
+                name:`${currDriverArray[1]} ${currDriverArray[0]}`,
+                id:currDriverArray[currDriverArray.length - 1],
+                CDL:false,
+                Chauffeur:false,
+                Manual:false,
+                Standard:true,
+                available:true
+            }
 
-        shapeDriverData(driver)
+            shapeDriverData(driver)
 
-        let certString = ""
-        for(let j = 2;j < currDriverArray.length - 1; j++){
-            certString = certString + currDriverArray[j]
-        }
+            let certString = ""
+            for(let j = 2;j < currDriverArray.length - 1; j++){
+                certString = certString + currDriverArray[j]
+            }
 
-        //assign special certifications
-        if(certString.includes("M")){
-            driver.Manual = true
-        }
-        if(certString.includes("CA") || certString.includes("A")){
-            driver.CDL = true
-        }
-        if(certString.includes("CH")){
-            driver.Chauffeur = true
-        }
-        drivers.push(driver)
+            //assign special certifications
+            if(certString.includes("M")){
+                driver.Manual = true
+            }
+            if(certString.includes("CA") || certString.includes("A")){
+                driver.CDL = true
+            }
+            if(certString.includes("CH")){
+                driver.Chauffeur = true
+            }
+            drivers.push(driver)
+        }else{}
     }
     shuffleDrivers(drivers)
     return drivers
