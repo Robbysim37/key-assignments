@@ -80,6 +80,7 @@ export const driverData = (matrix) => {
             drivers.push(driver)
         }else{}
     }
+    drivers.pop()
     shuffleDrivers(drivers)
     return drivers
 }
